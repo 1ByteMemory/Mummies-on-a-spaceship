@@ -13,6 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Bool_keys:
   - pbEnableBackfaceSelection
+  - pbDefaultOpenInDockableWindow
+  - pbIconGUI
+  - pb_TorusUsesInnerOuterMethod
+  - pbGenerateUV2PerObject
+  - pbUVEditorFloating
   m_Int_keys:
   - pbDefaultEditLevel
   - pb_GIWorkflowMode
@@ -23,15 +28,17 @@ MonoBehaviour:
   - pbEditorScroll.x
   - pbEditorScroll.y
   - pbExtrudeDistance
-  m_String_keys: []
+  m_String_keys:
+  - pbCurrentMaterialPalette
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 00
-  m_Int_values: 0100000000000000000000000200000002000000
+  m_Bool_values: 000100000000
+  m_Int_values: 0000000001000000000000000200000002000000
   m_Float_values:
   - 0
-  - 660
   - 0
-  m_String_values: []
+  - 0
+  m_String_values:
+  - Assets/ProCore/ProBuilder/Data/Default Material Palette.asset
   m_Color_values: []
   m_Material_values: []
