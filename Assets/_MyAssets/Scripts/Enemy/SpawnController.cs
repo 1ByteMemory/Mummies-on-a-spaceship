@@ -38,7 +38,7 @@ public class SpawnController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         float time = Time.time;
-        Debug.Log(Mathf.Round(time));
+        //Debug.Log(Mathf.Round(time));
 
         if (Mathf.Round(time) % spawnDelay == 0 && numberSpawned < maxEnemies)
         {
