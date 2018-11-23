@@ -11413,8 +11413,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 234410823}
-  enemyDamage: 1
   player: {fileID: 1188167484}
+  gunScript: {fileID: 1865644573}
+  spawner: {fileID: 281866929}
+  enemyDamage: 1
+  zombieHealth: 3
+  rageSpeed: 7
 --- !u!195 &234410823
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12930,14 +12934,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7ba93af94793f4e8c53028309060b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunScript: {fileID: 1865644573}
   zombie: {fileID: 234410821}
   spawnerHealth: 10
   spawnHelpHealth: 6
   spawnDelay: 5
-  spawnAmount: 5
   maxEnemies: 15
   minSpawnRadius: 1.5
   maxSpawnRadius: 3.5
+  numberSpawned: 0
 --- !u!65 &281866930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31309,7 +31314,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -92761,6 +92766,8 @@ MonoBehaviour:
   playerCamera: {fileID: 1852640645}
   damage: 1
   range: 100
+  zombieHitScript: {fileID: 234410822}
+  spawnerHitScript: {fileID: 281866929}
 --- !u!1 &1877300013
 GameObject:
   m_ObjectHideFlags: 0
@@ -99797,7 +99804,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 15.6, y: 15.6}
+  m_SizeDelta: {x: 4.92, y: 4.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979262969
 MonoBehaviour:

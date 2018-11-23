@@ -7,10 +7,12 @@ public class Gun : MonoBehaviour {
     public Camera playerCamera;
     public int damage = 1;
     public float range = 100f;
+    public RaycastHit hitInfo;
+    public MummyController zombieHitScript;
+    public SpawnController spawnerHitScript;
 
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -26,16 +28,11 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
-        RaycastHit hitInfo;
-
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
-            Debug.Log(hitInfo.transform.name);
+            zombieHitScript.ZombieHit();
+            spawnerHitScript.SpawnerHit();
         }
-
+        
     }
-
-
-
-
 }
