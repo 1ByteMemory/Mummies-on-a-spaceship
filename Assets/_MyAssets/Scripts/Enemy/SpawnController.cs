@@ -6,18 +6,19 @@ public class SpawnController : MonoBehaviour {
 
     public Gun gunScript;
     public GameObject zombie;
-    public int spawnerHealth = 10;
-    public int spawnHelpHealth = 6;
+    public MummyController sp;
+    public float spawnerMaxHealth = 10;
+    public float spawnHelpHealth = 6;
     public float spawnDelay = 5;
-    // public int spawnAmount = 5;
     public int maxEnemies = 15;
-
-
+    
     public float minSpawnRadius = 1.5f;
     public float maxSpawnRadius = 3.5f;
 
     [HideInInspector]
     public int numberSpawned = 0;
+    [HideInInspector]
+    public float spawnCurrentHealth;
 
     private void OnDrawGizmosSelected()
     {
@@ -31,17 +32,20 @@ public class SpawnController : MonoBehaviour {
 
     private void Start()
     {
-        if (spawnHelpHealth > spawnerHealth)
+        spawnCurrentHealth = spawnerMaxHealth;
+
+        if (spawnHelpHealth > spawnerMaxHealth)
         {
             Debug.LogError("Spawner Help Health must be smaller than Spawner Health! In Spawn Controller Componant on " + gameObject);
-            spawnHelpHealth = spawnerHealth - 1;
+            spawnHelpHealth = spawnerMaxHealth - 1;
         }
     }
 
     // Update is called once per frame
     void Update () {
         float time = Time.time;
-        //Debug.Log(Mathf.Round(time));
+        
+        //Debug.Log(spawnCurrentHealth);
 
         if (Mathf.Round(time) % spawnDelay == 0)
         {
@@ -51,12 +55,10 @@ public class SpawnController : MonoBehaviour {
 
     public void SpawnerHit()
     {
-        if (gunScript.hitInfo.transform == gameObject.transform)
-        {
-            spawnerHealth -= gunScript.damage;
-        }
+        spawnCurrentHealth -= gunScript.damage;
+        
 
-        if (spawnerHealth <= 0)
+        if (spawnCurrentHealth <= 0)
         {
             gameObject.transform.DetachChildren();
             Destroy(gameObject);

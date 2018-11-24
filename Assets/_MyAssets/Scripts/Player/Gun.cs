@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour {
     public MummyController zombieHitScript;
     public SpawnController spawnerHitScript;
 
+
     // Use this for initialization
     void Start () {
 		
@@ -21,6 +22,7 @@ public class Gun : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
+            //Debug.Log("Fire");
             Shoot();
         }
 
@@ -28,11 +30,17 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
+        
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
-            zombieHitScript.ZombieHit();
-            spawnerHitScript.SpawnerHit();
+            if (hitInfo.transform.tag == "Zombie")
+            {
+                hitInfo.transform.GetComponent<MummyController>().ZombieHit();
+            }
+            else if (hitInfo.transform.tag == "Spawner")
+            {
+                hitInfo.transform.GetComponent<SpawnController>().SpawnerHit();
+            }
         }
-        
     }
 }

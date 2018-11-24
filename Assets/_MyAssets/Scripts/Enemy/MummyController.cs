@@ -11,9 +11,20 @@ public class MummyController : MonoBehaviour {
     public int zombieHealth = 1;
     public float rageSpeed = 7f;
 
+    private int choice;
+
+    [HideInInspector]
+    public bool helping = false;
+
     const string Action_Seek = "Seek";
     const string Action_Rage = "Rage";
     const string Action_Heal = "Heal";
+    const string Action_Stay = "Stay";
+
+    private void Start()
+    {
+        choice = Random.Range(0, 2);
+    }
 
 
     // Update is called once per frame
@@ -29,52 +40,54 @@ public class MummyController : MonoBehaviour {
 
             case Action_Rage:
                 {
-                    agent.SetDestination(player.transform.position);
                     agent.speed = rageSpeed;
+                    agent.SetDestination(player.transform.position);
                 }
                 break;
             case Action_Heal:
                 {
-                    // Heals the Spawner
+                    agent.SetDestination(spawner.transform.position);
+                }
+                break;
+            case Action_Stay:
+                {
+                    // Play healling particles.
                 }
                 break;
         }
     }
 
-    string Action()
+    public string Action()
     {
-        if (spawner.spawnerHealth <= spawner.spawnHelpHealth)
+        if (spawner != null)
         {
-            float choice = Mathf.Round(Random.Range(0, 1));
-
-            if (choice == 0)
+            if (helping && choice == 0)
             {
-                Debug.Log("Healing");
                 return Action_Heal;
+            }
+            else if (helping && choice == 1)
+            {
+                return Action_Rage;
             }
             else
             {
-                Debug.Log("AAAARRRGGGGHHHH!!!!");
-                return Action_Rage;
+                return Action_Seek;
             }
         }
         else
         {
-            Debug.Log("Brains!");
-            return Action_Seek;
+            return Action_Rage;
         }
     }
 
     public void ZombieHit()
     {
-        if (gunScript.hitInfo.transform == gameObject.transform)
-        {
-            zombieHealth -= gunScript.damage;
-        }
+        zombieHealth -= gunScript.damage;
+        //Debug.LogWarning(zombieHealth);
 
         if (zombieHealth <= 0)
         {
-            spawner.numberSpawned--;
+            if (spawner != null) { spawner.numberSpawned--; }
             Destroy(gameObject);
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float playerSpeed = 5f;
+    public float playerJumpHieght = 1f;
     public float lookSpeed = 5f;
     public GameObject fpsCamera;
 
@@ -29,6 +30,13 @@ public class PlayerMovement : MonoBehaviour {
 
         rb.AddForce(transform.forward * playerSpeed * axisV, ForceMode.Impulse);         // Adds force to the player with speed
         rb.AddForce(transform.right * playerSpeed * axisH, ForceMode.Impulse);
+
+        //---JUMP---//
+
+        float jump = Input.GetAxis("Jump");
+        
+        
+
 
         //---LOOK---//
 
