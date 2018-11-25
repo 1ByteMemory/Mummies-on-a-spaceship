@@ -30,6 +30,16 @@ public class MummyController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (spawner.spawnCurrentHealth <= spawner.spawnHelpHealth)
+        {
+            helping = true;
+        }
+
+        if (spawner.spawnCurrentHealth >= spawner.spawnerMaxHealth)
+        {
+            helping = false;
+        }
+
         switch (Action())
         {
             case Action_Seek:

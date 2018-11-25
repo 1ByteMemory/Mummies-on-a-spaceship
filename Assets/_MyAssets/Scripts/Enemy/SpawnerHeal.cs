@@ -5,13 +5,14 @@ using UnityEngine;
 public class SpawnerHeal : MonoBehaviour {
 
     public SpawnController sp;
-    public MummyController zombies;
+    //public MummyController zombies;
 
     private int HealBoost;
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Zombie" && zombies.Action() == "Heal")
+        if (other.tag == "Zombie" && other.GetComponent<MummyController>().Action() == "Heal")
         {
             HealBoost++;
         }
@@ -19,7 +20,7 @@ public class SpawnerHeal : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Zombie" && zombies.Action() == "Heal")
+        if (other.tag == "Zombie" && other.GetComponent<MummyController>().Action() == "Heal")
         {
             HealBoost--;
         }
@@ -27,9 +28,10 @@ public class SpawnerHeal : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Zombie" && zombies.Action() == "Heal")
+        if (other.tag == "Zombie" && other.GetComponent<MummyController>().Action() == "Heal")
         {
-            sp.spawnerMaxHealth += HealBoost * Time.deltaTime;
+            sp.spawnCurrentHealth += HealBoost * Time.deltaTime;
+            Debug.Log(sp.spawnCurrentHealth);
         }
     }
 }

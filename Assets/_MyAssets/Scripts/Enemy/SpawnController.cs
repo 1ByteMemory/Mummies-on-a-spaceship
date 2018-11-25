@@ -6,7 +6,6 @@ public class SpawnController : MonoBehaviour {
 
     public Gun gunScript;
     public GameObject zombie;
-    public MummyController sp;
     public float spawnerMaxHealth = 10;
     public float spawnHelpHealth = 6;
     public float spawnDelay = 5;

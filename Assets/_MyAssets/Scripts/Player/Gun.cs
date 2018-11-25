@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour {
     public RaycastHit hitInfo;
     public MummyController zombieHitScript;
     public SpawnController spawnerHitScript;
-
+    public ParticleSystem zombieImpact;
 
     // Use this for initialization
     void Start () {
@@ -35,6 +35,8 @@ public class Gun : MonoBehaviour {
         {
             if (hitInfo.transform.tag == "Zombie")
             {
+                ParticleSystem inst = Instantiate(zombieImpact, hitInfo.transform.position + new Vector3(0, 0.6f, 0), Quaternion.Euler(-90, 0, 0));
+                inst.Play();
                 hitInfo.transform.GetComponent<MummyController>().ZombieHit();
             }
             else if (hitInfo.transform.tag == "Spawner")
