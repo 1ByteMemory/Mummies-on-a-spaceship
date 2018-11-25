@@ -11,26 +11,30 @@ public class Gun : MonoBehaviour {
     public MummyController zombieHitScript;
     public SpawnController spawnerHitScript;
     public ParticleSystem zombieImpact;
+    public GameObject muzzleFlash;
+
+    private Animator anim;
+    private bool canFire = true;
 
     // Use this for initialization
     void Start () {
-		
+        anim = GetComponent<Animator>();
+        muzzleFlash.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.GetButtonDown("Fire1"))
         {
-            //Debug.Log("Fire");
-            Shoot();
+            anim.Play("GunFireAnimation");
         }
-
-	}
+    }
 
     void Shoot()
     {
-        
+
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
             if (hitInfo.transform.tag == "Zombie")
@@ -44,5 +48,10 @@ public class Gun : MonoBehaviour {
                 hitInfo.transform.GetComponent<SpawnController>().SpawnerHit();
             }
         }
+    }
+
+    void StopAnimation()
+    {
+        anim.Play("Hold");
     }
 }

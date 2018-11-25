@@ -31,7 +31,6 @@ public class SpawnerHeal : MonoBehaviour {
         if (other.tag == "Zombie" && other.GetComponent<MummyController>().Action() == "Heal")
         {
             sp.spawnCurrentHealth += HealBoost * Time.deltaTime;
-            Debug.Log(sp.spawnCurrentHealth);
         }
     }
 }
