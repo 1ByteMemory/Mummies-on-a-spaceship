@@ -10,7 +10,7 @@ public class SpawnController : MonoBehaviour {
     public float spawnHelpHealth = 6;
     public float spawnDelay = 5;
     public int maxEnemies = 15;
-    
+
     public float minSpawnRadius = 1.5f;
     public float maxSpawnRadius = 3.5f;
 
@@ -52,9 +52,9 @@ public class SpawnController : MonoBehaviour {
         }
     }
 
-    public void SpawnerHit()
+    public void SpawnerHit(int damage)
     {
-        spawnCurrentHealth -= gunScript.damage;
+        spawnCurrentHealth -= damage;
         
 
         if (spawnCurrentHealth <= 0)
