@@ -25,10 +25,6 @@ public class GrenadeController : MonoBehaviour {
         GameObject inst = Instantiate(grenade, transform.position, new Quaternion());
         
         inst.GetComponent<Rigidbody>().AddForce(transform.forward * throwForce, ForceMode.Impulse);
-
-
-
-
     }
 
 }

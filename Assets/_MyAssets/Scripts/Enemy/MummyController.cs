@@ -90,9 +90,9 @@ public class MummyController : MonoBehaviour {
         }
     }
 
-    public void ZombieHit()
+    public void ZombieHit(int dmg)
     {
-        zombieHealth -= gunScript.damage;
+        zombieHealth -= dmg;
         //Debug.LogWarning(zombieHealth);
 
         if (zombieHealth <= 0)
@@ -101,4 +101,6 @@ public class MummyController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+    
+    
 }

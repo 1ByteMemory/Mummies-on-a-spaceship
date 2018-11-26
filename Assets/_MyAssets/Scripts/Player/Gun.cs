@@ -41,7 +41,7 @@ public class Gun : MonoBehaviour {
             {
                 ParticleSystem inst = Instantiate(zombieImpact, hitInfo.transform.position + new Vector3(0, 0.6f, 0), Quaternion.Euler(-90, 0, 0));
                 inst.Play();
-                hitInfo.transform.GetComponent<MummyController>().ZombieHit();
+                hitInfo.transform.GetComponent<MummyController>().ZombieHit(damage);
             }
             else if (hitInfo.transform.tag == "Spawner")
             {

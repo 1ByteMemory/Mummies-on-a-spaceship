@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23753173804064030}
   - component: {fileID: 135010901556201860}
   - component: {fileID: 54459223119269772}
-  - component: {fileID: 95181400725777732}
   - component: {fileID: 114198950245257692}
   m_Layer: 10
   m_Name: GrenadeGFX
@@ -102,24 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!95 &95181400725777732
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 307c43911e12aa043bdf2d8f3566a90f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114198950245257692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detTimer: 2
+  explosion: {fileID: 198542363182131408, guid: c80ecd03348654a4cb969e6bd77193df,
+    type: 2}
 --- !u!135 &135010901556201860
 SphereCollider:
   m_ObjectHideFlags: 1

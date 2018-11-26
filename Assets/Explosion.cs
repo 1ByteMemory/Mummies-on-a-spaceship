@@ -5,37 +5,35 @@ using UnityEngine;
 public class Explosion : MonoBehaviour {
 
     public float detTimer = 3f;
+    public ParticleSystem explosion;
 
     private bool firstHit = true;
     private bool explodeDamage = false;
-    private Animator anim;
+    
+
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.enabled = false;
+        explosion.Stop();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Zombie" && firstHit)
         {
-            anim.enabled = true;
-            explodeDamage = true;
+            Explode();
         }
         else
         {
             firstHit = false;
             StartCoroutine(WaitExplode());
         }
-        if (explodeDamage && collision.transform.tag == "Zombie")
-        {
-            Destroy(collision.gameObject);
-        }
     }
 
     void Explode()
     {
+        Instantiate(explosion, transform.position, Quaternion.Euler(-90, 0, 0));
+
         Destroy(gameObject);
     }
 
@@ -43,7 +41,6 @@ public class Explosion : MonoBehaviour {
     IEnumerator WaitExplode()
     {
         yield return new WaitForSeconds(detTimer);
-        anim.enabled = true;
-        explodeDamage = true;
+        Explode();
     }
 }
