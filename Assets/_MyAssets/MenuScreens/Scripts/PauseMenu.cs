@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void MainMenu ()                                   // Main menu function. Called by the buttons in the ui.
     {
-
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);                            // Loads the main menu.
     }
 }
