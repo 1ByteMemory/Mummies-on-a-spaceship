@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     {
 
         //---MOVE---//
-
+        
         float axisV = Input.GetAxisRaw("Vertical");                 // Forward/Backward Input
         float axisH = Input.GetAxisRaw("Horizontal");               // Left/Right Input
 
@@ -44,9 +44,11 @@ public class PlayerMovement : MonoBehaviour {
         //---LOOK---//
 
         Vector3 look = fpsCamera.transform.localEulerAngles;
-
-        look.x -= Input.GetAxis("Mouse Y") * lookSpeed;
-        look.y += Input.GetAxis("Mouse X") * lookSpeed;
+        if (!Cursor.visible)
+        {
+            look.x -= Input.GetAxis("Mouse Y") * lookSpeed;
+            look.y += Input.GetAxis("Mouse X") * lookSpeed;
+        }
         //Debug.Log(look);
 
         
@@ -66,8 +68,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             fpsCamera.transform.localEulerAngles = new Vector3(look.x, 0);
         }
-
-
         //Debug.Log(fpsCamera.transform.localEulerAngles + ", " + look.x);
     }
 }

@@ -2,14 +2,14 @@
 using UnityEngine.AI;
 
 public class MummyController : MonoBehaviour {
-
-    public NavMeshAgent agent;
-    public GameObject player;
-    public Gun gunScript;
-    public SpawnController spawner;
+    
     public int enemyDamage = 1;
     public int zombieHealth = 1;
     public float rageSpeed = 7f;
+
+    private NavMeshAgent agent;
+    private GameObject player;
+    private SpawnController spawner;
 
     private int choice;
 
@@ -23,6 +23,10 @@ public class MummyController : MonoBehaviour {
 
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        spawner = GetComponentInParent<SpawnController>();
+
         choice = Random.Range(0, 2);
     }
 

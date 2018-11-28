@@ -21,11 +21,11 @@ public class ExplosionParticles : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Zombie")
+        if (other.transform.tag == "Zombie")
         {
-            other.GetComponent<MummyController>().ZombieHit(damage);
+            other.transform.GetComponent<MummyController>().ZombieHit(damage);
         }
     }
 }

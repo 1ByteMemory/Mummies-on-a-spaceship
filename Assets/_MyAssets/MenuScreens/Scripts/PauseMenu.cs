@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour {
     {
         PauseMenuUI.SetActive(false);                         // The puase menu is deactivated.
         Cursor.visible = false;                               // Hides the cursor.
+        Cursor.lockState = CursorLockMode.Locked;
     }
                 
     void Update () {                                          // Every update of the game.
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour {
      
     public void Resume ()                                     // Function to resume the game.
     {
+        Cursor.lockState = CursorLockMode.Locked;
         PauseMenuUI.SetActive(false);                         // Deactivates the puase menu
         Time.timeScale = 1f;                                  // Game speed is set to normal gam espeed.
         IsPaused = false;                                     // the game is not puased.
@@ -38,6 +40,7 @@ public class PauseMenu : MonoBehaviour {
      
     public void Pause ()                                      // Function that puases the game.
     {
+        Cursor.lockState = CursorLockMode.None;
         PauseMenuUI.SetActive(true);                          // Puse menu is activated.
         Time.timeScale = 0f;                                  // Time is stopped.
         IsPaused = true;                                      // The game is puased

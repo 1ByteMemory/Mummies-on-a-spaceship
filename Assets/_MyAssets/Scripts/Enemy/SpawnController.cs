@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnController : MonoBehaviour {
-
-    public Gun gunScript;
+    
     public GameObject zombie;
     public float spawnerMaxHealth = 10;
     public float spawnHelpHealth = 6;
@@ -74,7 +73,7 @@ public class SpawnController : MonoBehaviour {
             float spawnX = Random.Range(minSpawnRadius, maxSpawnRadius);
             float spawnZ = Random.Range(minSpawnRadius, maxSpawnRadius);
         
-            Vector3 spawnPoint = new Vector3(spawnX, transform.position.y, spawnZ) + transform.position;
+            Vector3 spawnPoint = new Vector3(spawnX, 0, spawnZ) + transform.position;
         
             GameObject inst = Instantiate(zombie, spawnPoint, new Quaternion());
         
