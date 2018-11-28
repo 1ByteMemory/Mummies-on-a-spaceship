@@ -9,10 +9,17 @@ public class MainMenu : MonoBehaviour {
     // These functions are called by the buttons in the UI.
 
     public int firstLevelIndex = 1;                         // The index of the first level. (could be different if there are tutorials
+    public Camera cam;
+    public Transform pointA;
+    public Transform pointB;
+    public GameObject mainMenu;
+    public GameObject Sources;
 
     private void Start()
     {
         Cursor.visible = true;                              // Shows the cursor.
+        Sources.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     public void PlayGame ()                                 // Called to play the game.
@@ -25,6 +32,15 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(firstLevelIndex);            // Loads the first level.
     }
+
+    public void Source ()
+    {
+        mainMenu.SetActive(false);
+        Sources.SetActive(true);
+        cam.transform.position = pointB.position;
+        cam.transform.rotation = pointB.rotation;
+    }
+
 
     public void QuitGame ()                                 // Called to quit the game.
     {
