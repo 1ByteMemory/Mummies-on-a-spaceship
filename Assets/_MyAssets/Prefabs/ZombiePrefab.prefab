@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 54757091173455418}
   - component: {fileID: 136652658058233528}
   - component: {fileID: 114381606313827292}
+  - component: {fileID: 114740869514971314}
   - component: {fileID: 195373993614168814}
   m_Layer: 11
   m_Name: ZombiePrefab
@@ -1184,9 +1185,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyDamage: 1
-  zombieHealth: 1
   rageSpeed: 8
+  deathParticles: {fileID: 198274869020775270, guid: 83628fa90c006a34fa30ef14c776ff07,
+    type: 2}
   helping: 0
+--- !u!114 &114740869514971314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089710928675680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ad35a3b0cca5418aa1475beb52cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetHP: 1
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114381606313827292}
+        m_MethodName: ZombieDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!136 &136652658058233528
 CapsuleCollider:
   m_ObjectHideFlags: 1

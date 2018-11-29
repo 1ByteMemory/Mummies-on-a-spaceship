@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Zombie" && firstHit)
+        if (collision.transform.GetComponent<Target>() && firstHit)
         {
             Explode();
         }
@@ -30,7 +30,7 @@ public class Explosion : MonoBehaviour {
         }
     }
 
-    void Explode()
+    public void Explode()
     {
         Instantiate(explosion, transform.position, Quaternion.Euler(-90, 0, 0));
 

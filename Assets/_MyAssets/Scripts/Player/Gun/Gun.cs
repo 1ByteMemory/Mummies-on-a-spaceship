@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour {
 
     public Camera playerCamera;
-    public int damage = 1;
+    public float damage = 1;
     public float range = 100f;
     public RaycastHit hitInfo;
     public MummyController zombieHitScript;
@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour {
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire1") && !Cursor.visible)
+        if (Input.GetButton("Fire1") && !Cursor.visible)
         {
             anim.Play("GunFireAnimation");
         }
@@ -34,18 +34,11 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
-
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
-            if (hitInfo.transform.tag == "Zombie")
+            if (hitInfo.transform.GetComponent<Target>())
             {
-                ParticleSystem inst = Instantiate(zombieImpact, hitInfo.transform.position + new Vector3(0, 0.6f, 0), Quaternion.Euler(-90, 0, 0));
-                inst.Play();
-                hitInfo.transform.GetComponent<MummyController>().ZombieHit(damage);
-            }
-            else if (hitInfo.transform.tag == "Spawner")
-            {
-                hitInfo.transform.GetComponent<SpawnController>().SpawnerHit(damage);
+                hitInfo.transform.GetComponent<Target>().TargetTakeDamage(damage);
             }
         }
     }

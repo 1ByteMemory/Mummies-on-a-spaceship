@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23138013570260834}
   - component: {fileID: 65416136067953820}
   - component: {fileID: 114652029943121646}
+  - component: {fileID: 114028518410165850}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Spawner
@@ -128,6 +129,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114028518410165850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799747566976462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ad35a3b0cca5418aa1475beb52cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetHP: 5
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114652029943121646}
+        m_MethodName: SpawnerHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114652029943121646}
+        m_MethodName: SpawnerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114245015957416224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,12 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7ba93af94793f4e8c53028309060b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunScript: {fileID: 0}
   zombie: {fileID: 1089710928675680, guid: 29e0881f022ad4e49aa5707a238b8dd5, type: 2}
   spawnerMaxHealth: 5
   spawnHelpHealth: 3
   spawnDelay: 5
-  maxEnemies: 15
+  maxEnemies: 5
   minSpawnRadius: 1.5
   maxSpawnRadius: 3.5
   numberSpawned: 0

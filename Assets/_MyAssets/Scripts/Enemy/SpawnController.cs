@@ -25,9 +25,7 @@ public class SpawnController : MonoBehaviour {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, new Vector3(maxSpawnRadius, 0, maxSpawnRadius));
     }
-
-
-
+    
     private void Start()
     {
         spawnCurrentHealth = spawnerMaxHealth;
@@ -51,16 +49,15 @@ public class SpawnController : MonoBehaviour {
         }
     }
 
-    public void SpawnerHit(int damage)
+    public void SpawnerHit()
     {
-        spawnCurrentHealth -= damage;
-        
+        spawnCurrentHealth = GetComponent<Target>().targetHP;
+    }
 
-        if (spawnCurrentHealth <= 0)
-        {
-            gameObject.transform.DetachChildren();
-            Destroy(gameObject);
-        }
+    public void SpawnerDeath()
+    {
+        gameObject.transform.DetachChildren();
+        Destroy(gameObject);
     }
 
     private void SpawnEnemies ()

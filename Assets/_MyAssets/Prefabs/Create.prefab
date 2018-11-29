@@ -9,48 +9,48 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1306404721970292}
+  m_RootGameObject: {fileID: 1802836621150004}
   m_IsPrefabAsset: 1
---- !u!1 &1306404721970292
+--- !u!1 &1802836621150004
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4566444927057034}
-  - component: {fileID: 33688053486466834}
-  - component: {fileID: 23753173804064030}
-  - component: {fileID: 135010901556201860}
-  - component: {fileID: 54459223119269772}
-  - component: {fileID: 114198950245257692}
-  - component: {fileID: 114681580599661098}
-  m_Layer: 10
-  m_Name: GrenadeGFX
-  m_TagString: Grenade
+  - component: {fileID: 4968273618659856}
+  - component: {fileID: 33656075911704744}
+  - component: {fileID: 23387540354559586}
+  - component: {fileID: 65834452679940906}
+  - component: {fileID: 54190848906349638}
+  - component: {fileID: 114462054115639338}
+  - component: {fileID: 114892782816489498}
+  m_Layer: 0
+  m_Name: Create
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4566444927057034
+--- !u!4 &4968273618659856
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
+  m_GameObject: {fileID: 1802836621150004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.26, z: 8.94}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -1.328, y: 6.541, z: 13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23753173804064030
+--- !u!23 &23387540354559586
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
+  m_GameObject: {fileID: 1802836621150004}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -60,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f9151edc855bc7c448c90ebed5afadeb, type: 2}
+  - {fileID: 2100000, guid: 899b150098a93dd44af0c4b41c09f520, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,59 +80,73 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33688053486466834
+--- !u!33 &33656075911704744
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54459223119269772
+  m_GameObject: {fileID: 1802836621150004}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54190848906349638
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
+  m_GameObject: {fileID: 1802836621150004}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 50
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114198950245257692
+--- !u!65 &65834452679940906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802836621150004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114462054115639338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
+  m_GameObject: {fileID: 1802836621150004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a70f54b9a72ae4a917ba22a5b082b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 89f168f465748ae469d3ee9b3fedfa96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detTimer: 2
-  explosion: {fileID: 198542363182131408, guid: c80ecd03348654a4cb969e6bd77193df,
-    type: 2}
---- !u!114 &114681580599661098
+--- !u!114 &114892782816489498
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
+  m_GameObject: {fileID: 1802836621150004}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e80ad35a3b0cca5418aa1475beb52cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHP: 1
+  targetHP: 10
   OnHit:
     m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114198950245257692}
-        m_MethodName: Explode
+      - m_Target: {fileID: 114462054115639338}
+        m_MethodName: DestroyCreate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -144,20 +158,3 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!135 &135010901556201860
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1306404721970292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

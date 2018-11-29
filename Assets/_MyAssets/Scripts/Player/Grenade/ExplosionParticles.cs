@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosionParticles : MonoBehaviour {
 
-    public int damage = 5;
+    public int explosionDamage = 5;
 
     private ParticleSystem ps;
 
@@ -23,9 +23,9 @@ public class ExplosionParticles : MonoBehaviour {
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag == "Zombie")
+        if (other.transform.GetComponent<Target>())
         {
-            other.transform.GetComponent<MummyController>().ZombieHit(damage);
+            other.transform.GetComponent<Target>().TargetTakeDamage(explosionDamage);
         }
     }
 }

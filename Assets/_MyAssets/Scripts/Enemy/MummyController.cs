@@ -4,8 +4,8 @@ using UnityEngine.AI;
 public class MummyController : MonoBehaviour {
     
     public int enemyDamage = 1;
-    public int zombieHealth = 1;
     public float rageSpeed = 7f;
+    public ParticleSystem deathParticles;
 
     private NavMeshAgent agent;
     private GameObject player;
@@ -94,17 +94,11 @@ public class MummyController : MonoBehaviour {
         }
     }
 
-    public void ZombieHit(int dmg)
+    public void ZombieDeath()
     {
-        zombieHealth -= dmg;
-        //Debug.LogWarning(zombieHealth);
-
-        if (zombieHealth <= 0)
-        {
-            if (spawner != null) { spawner.numberSpawned--; }
-            Destroy(gameObject);
-        }
+        if (spawner != null) { spawner.numberSpawned--; }
+        ParticleSystem inst = Instantiate(deathParticles, transform.position, Quaternion.Euler(-90, 0, 0));
+        inst.Play();
+        Destroy(gameObject);
     }
-    
-    
 }
