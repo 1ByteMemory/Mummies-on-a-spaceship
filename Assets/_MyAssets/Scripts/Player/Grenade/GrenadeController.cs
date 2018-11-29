@@ -16,14 +16,19 @@ public class GrenadeController : MonoBehaviour {
     private float nextFireTime;
     private float startFireTime;
     private Rigidbody rb;
-    
+
+    private void Start()
+    {
+        grenadeIndicator.value = 1;
+        nextFireTime = -1;
+    }
 
     private void Update()
     {
         if (Time.time > nextFireTime)
         {
             grenadeIcon.color = Color.white;
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && !Cursor.visible)
             {
                 startFireTime = Time.time;
                 nextFireTime = Time.time + throwCooldown;

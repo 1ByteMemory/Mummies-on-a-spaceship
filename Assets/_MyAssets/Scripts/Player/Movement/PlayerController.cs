@@ -7,12 +7,19 @@ public class PlayerController : MonoBehaviour {
 
     public Image hitIndicator;
     public Slider playerHealthSlider;
+    public GameObject deathScreen;
 
     private bool hit = false;
     private float startTime;
     private float endTime;
     private float t;
     private bool changing = false;
+
+    private void Start()
+    {
+        deathScreen.SetActive(false);
+        playerHealthSlider.value = 1;
+    }
 
     public void PlayerHit ()
     {
@@ -22,7 +29,10 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerDeath ()
     {
-        Debug.Log("Blegh");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        deathScreen.SetActive(true);
     }
 
     private void Update()

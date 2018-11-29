@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799747566976462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.38, y: 1.19, z: -2.02}
+  m_LocalPosition: {x: 25.3, y: 7, z: 37.996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4857045919859782}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ad35a3b0cca5418aa1475beb52cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHP: 5
+  targetHP: 4
   OnHit:
     m_PersistentCalls:
       m_Calls:
@@ -196,13 +196,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7ba93af94793f4e8c53028309060b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   zombie: {fileID: 1089710928675680, guid: 29e0881f022ad4e49aa5707a238b8dd5, type: 2}
-  spawnerMaxHealth: 5
+  spawnerMaxHealth: 4
   spawnHelpHealth: 3
   spawnDelay: 5
-  maxEnemies: 5
+  maxEnemies: 2
   minSpawnRadius: 1.5
-  maxSpawnRadius: 3.5
+  maxSpawnRadius: 2.56
   numberSpawned: 0
   spawnCurrentHealth: 0
 --- !u!135 &135172060177270674
@@ -215,5 +216,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}

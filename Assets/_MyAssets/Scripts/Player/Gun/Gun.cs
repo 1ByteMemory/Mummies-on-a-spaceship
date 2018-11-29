@@ -7,12 +7,10 @@ public class Gun : MonoBehaviour {
     public Camera playerCamera;
     public float damage = 1;
     public float range = 100f;
-    public RaycastHit hitInfo;
-    public MummyController zombieHitScript;
-    public SpawnController spawnerHitScript;
-    public ParticleSystem zombieImpact;
     public GameObject muzzleFlash;
 
+    private Material impactMat;
+    private RaycastHit hitInfo;
     private Animator anim;
     private bool canFire = true;
 
@@ -36,6 +34,8 @@ public class Gun : MonoBehaviour {
     {
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
+            //impactMat = hitInfo.transform.GetComponent<MeshRenderer>().material;
+            
             if (hitInfo.transform.GetComponent<Target>())
             {
                 hitInfo.transform.GetComponent<Target>().TargetTakeDamage(damage);

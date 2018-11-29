@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnController : MonoBehaviour {
-    
+
+    public GameManager gameManager;
     public GameObject zombie;
     public float spawnerMaxHealth = 10;
     public float spawnHelpHealth = 6;
@@ -17,6 +18,8 @@ public class SpawnController : MonoBehaviour {
     public int numberSpawned = 0;
     [HideInInspector]
     public float spawnCurrentHealth;
+
+    private bool enabledSpawner = true;
 
     private void OnDrawGizmosSelected()
     {
@@ -43,7 +46,7 @@ public class SpawnController : MonoBehaviour {
         
         //Debug.Log(spawnCurrentHealth);
 
-        if (Mathf.Round(time) % spawnDelay == 0)
+        if (Mathf.Round(time) % spawnDelay == 0 && enabledSpawner)
         {
             SpawnEnemies();
         }
@@ -56,8 +59,16 @@ public class SpawnController : MonoBehaviour {
 
     public void SpawnerDeath()
     {
+        enabledSpawner = false;
+
         gameObject.transform.DetachChildren();
-        Destroy(gameObject);
+        gameManager.spawnersDestroyed++;
+
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<Target>().enabled = false;
+
+        StartCoroutine(Respawn());
     }
 
     private void SpawnEnemies ()
@@ -77,4 +88,24 @@ public class SpawnController : MonoBehaviour {
             inst.transform.parent = gameObject.transform;
         }
     }
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(10);
+
+        enabledSpawner = true;
+
+        spawnerMaxHealth++;
+        spawnHelpHealth++;
+        spawnCurrentHealth = spawnerMaxHealth;
+        GetComponent<Target>().targetHP = spawnCurrentHealth;
+        maxEnemies++;
+
+        Debug.Log(spawnCurrentHealth);
+
+        GetComponent<MeshRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<Target>().enabled = true;
+    }
+
 }

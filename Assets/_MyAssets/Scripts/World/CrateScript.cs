@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateScript : MonoBehaviour {
+public class CrateScript : MonoBehaviour {
 
 	public void DestroyCreate ()
     {
