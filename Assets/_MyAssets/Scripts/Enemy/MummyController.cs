@@ -101,4 +101,12 @@ public class MummyController : MonoBehaviour {
         inst.Play();
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            collision.transform.GetComponent<Target>().TargetTakeDamage(enemyDamage);
+        }
+    }
 }

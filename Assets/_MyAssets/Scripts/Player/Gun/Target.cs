@@ -14,6 +14,8 @@ public class Target : MonoBehaviour {
     public void TargetTakeDamage (float damage)
     {
         targetHP -= damage;
+        //Debug.Log(damage);
+
         if (OnHit != null) { OnHit.Invoke(); }
 
         if (targetHP <= 0)
@@ -21,6 +23,4 @@ public class Target : MonoBehaviour {
             if (OnDeath != null) { OnDeath.Invoke(); }
         }
     }
-
-    
 }

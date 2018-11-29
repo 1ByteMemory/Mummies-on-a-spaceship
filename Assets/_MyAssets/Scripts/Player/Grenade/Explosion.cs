@@ -33,7 +33,6 @@ public class Explosion : MonoBehaviour {
     public void Explode()
     {
         Instantiate(explosion, transform.position, Quaternion.Euler(-90, 0, 0));
-
         Destroy(gameObject);
     }
 

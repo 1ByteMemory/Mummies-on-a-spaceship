@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExplosionParticles : MonoBehaviour {
 
-    public int explosionDamage = 5;
+    public float explosionDamage = 5;
 
     private ParticleSystem ps;
 
@@ -23,8 +23,10 @@ public class ExplosionParticles : MonoBehaviour {
 
     private void OnCollisionEnter(Collision other)
     {
+        //Debug.Log(other.transform.name);
         if (other.transform.GetComponent<Target>())
         {
+            Debug.Log(other.transform.tag);
             other.transform.GetComponent<Target>().TargetTakeDamage(explosionDamage);
         }
     }
