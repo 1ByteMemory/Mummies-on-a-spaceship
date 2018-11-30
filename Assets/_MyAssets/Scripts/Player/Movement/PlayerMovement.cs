@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        Cursor.visible = false;
+        //Cursor.visible = false;
 	}
 
     // Update is called once per frame
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
         
         if (Input.GetButtonDown("Jump"))
         {
+            // adds up force when player jumps.
             rb.AddForce(transform.up * playerJumpForce, ForceMode.Impulse);
         }
 
@@ -47,16 +48,16 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 look = fpsCamera.transform.localEulerAngles;
         if (!Cursor.visible)
         {
+            // Gets mouse position
             look.x -= Input.GetAxis("Mouse Y") * lookSpeed;
             look.y += Input.GetAxis("Mouse X") * lookSpeed;
         }
         //Debug.Log(look);
 
-        
+        // Turns player in y axis.
         transform.eulerAngles += new Vector3(0, look.y);
         
-        // 85 and 275 angels on fpsCamera check.
-
+        // Stops player from looking to far up/down.
         if (look.x > 85 && look.x < 180)
         {
             fpsCamera.transform.localEulerAngles = new Vector3(85, 0);

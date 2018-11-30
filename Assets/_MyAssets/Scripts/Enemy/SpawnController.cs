@@ -21,6 +21,7 @@ public class SpawnController : MonoBehaviour {
 
     private bool enabledSpawner = true;
 
+    // Draw Gismos to see where zombies will spawn.
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
@@ -46,6 +47,7 @@ public class SpawnController : MonoBehaviour {
         
         //Debug.Log(spawnCurrentHealth);
 
+        // Spawns zombies every x amount of seconds.
         if (Mathf.Round(time) % spawnDelay == 0 && enabledSpawner)
         {
             SpawnEnemies();
@@ -77,7 +79,8 @@ public class SpawnController : MonoBehaviour {
         if (numberSpawned <= maxEnemies)
         {
             numberSpawned++;
-        
+            
+            // Chooses a random point around spawner.
             float spawnX = Random.Range(minSpawnRadius, maxSpawnRadius);
             float spawnZ = Random.Range(minSpawnRadius, maxSpawnRadius);
         
@@ -89,6 +92,7 @@ public class SpawnController : MonoBehaviour {
         }
     }
 
+    // Re-enables spawner as if a new one has apperad.
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(10);

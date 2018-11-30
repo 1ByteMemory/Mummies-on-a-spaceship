@@ -19,6 +19,7 @@ public class Explosion : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Explodes on impact if object has a target script and grenade hasn't already hit somthing.
         if (collision.transform.GetComponent<Target>() && firstHit)
         {
             Explode();
@@ -32,13 +33,14 @@ public class Explosion : MonoBehaviour {
 
     public void Explode()
     {
-        Instantiate(explosion, transform.position, Quaternion.Euler(-90, 0, 0));
+        Instantiate(explosion, transform.position, Quaternion.Euler(-90, 0, 0)); // Explosion affects.
         Destroy(gameObject);
     }
 
 
     IEnumerator WaitExplode()
     {
+        // explodes after x amount of seconds.
         yield return new WaitForSeconds(detTimer);
         Explode();
     }

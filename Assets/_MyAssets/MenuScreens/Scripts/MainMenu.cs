@@ -17,9 +17,12 @@ public class MainMenu : MonoBehaviour {
 
     private void Start()
     {
-        Cursor.visible = true;                              // Shows the cursor.
-        Sources.SetActive(false);
-        mainMenu.SetActive(true);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            Cursor.visible = true;                              // Shows the cursor.
+            Sources.SetActive(false);
+            mainMenu.SetActive(true);
+        }
     }
 
     public void PlayGame ()                                 // Called to play the game.
@@ -38,7 +41,6 @@ public class MainMenu : MonoBehaviour {
         mainMenu.SetActive(false);
         Sources.SetActive(true);
         cam.transform.position = pointB.position;
-        cam.transform.rotation = pointB.rotation;
     }
 
 

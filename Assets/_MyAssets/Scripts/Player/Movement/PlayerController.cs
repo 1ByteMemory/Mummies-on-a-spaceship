@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
     public void PlayerDeath ()
     {
         HUD.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None; 
         Cursor.visible = true;
         Time.timeScale = 0;
         deathScreen.SetActive(true);
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                hitIndicator.color = Color.Lerp(new Color(1, 0, 0, 0.5f), new Color(0, 0, 0, 0), t);
+                hitIndicator.color = Color.Lerp(new Color(1, 0, 0, 0.5f), new Color(0, 0, 0, 0), t);    // Lerps the colour of the panel between red an nothing.
                 t += Time.deltaTime;
                 if (t >= 1) { changing = false; hit = false; }
             }

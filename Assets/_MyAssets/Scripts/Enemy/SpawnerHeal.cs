@@ -30,7 +30,7 @@ public class SpawnerHeal : MonoBehaviour {
     {
         if (other.tag == "Zombie" && other.GetComponent<MummyController>().Action() == "Heal")
         {
-            sp.spawnCurrentHealth += HealBoost * Time.deltaTime;
+            sp.spawnCurrentHealth += HealBoost * Time.deltaTime; // Spawners health is regenerated based on amount of zombies nearby.
         }
     }
 }

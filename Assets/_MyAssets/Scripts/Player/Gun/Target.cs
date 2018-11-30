@@ -16,11 +16,11 @@ public class Target : MonoBehaviour {
         targetHP -= damage;
         //Debug.Log(damage);
 
-        if (OnHit != null) { OnHit.Invoke(); }
+        if (OnHit != null) { OnHit.Invoke(); } // Invokes a chosen script from inspector when hit.
 
         if (targetHP <= 0)
         {
-            if (OnDeath != null) { OnDeath.Invoke(); }
+            if (OnDeath != null) { OnDeath.Invoke(); } // Invokes a chosen script from inspector when no more health.
         }
     }
 }

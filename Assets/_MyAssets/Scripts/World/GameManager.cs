@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour {
 
     private void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; // Allows the game to run.
+        Cursor.lockState = CursorLockMode.Locked; // Locks cursor in place.
+        Cursor.visible = false;
+
     }
 
     private void Update()

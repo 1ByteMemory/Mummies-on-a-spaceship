@@ -27,7 +27,7 @@ public class ExplosionParticles : MonoBehaviour {
         if (other.transform.GetComponent<Target>())
         {
             Debug.Log(other.transform.tag);
-            other.transform.GetComponent<Target>().TargetTakeDamage(explosionDamage);
+            other.transform.GetComponent<Target>().TargetTakeDamage(explosionDamage); // Object with target script takes damage.
         }
     }
 }

@@ -33,25 +33,25 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo)) //  If raycast has hit something
         {
-            if (hitInfo.transform.tag == "Zombie")
+            if (hitInfo.transform.tag == "Zombie") // if is hit a zombie.
             {
-                impactMat = hitInfo.transform.GetComponentInChildren<Renderer>().materials[0];
+                impactMat = hitInfo.transform.GetComponentInChildren<Renderer>().materials[0]; // Get's the material of zombie.
             }
             else
             {
                 impactMat = hitInfo.transform.GetComponent<MeshRenderer>().material;
             }
 
-            impactAffect.transform.GetComponent<ParticleSystemRenderer>().material = impactMat;
-            GameObject imp = Instantiate(impactAffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            impactAffect.transform.GetComponent<ParticleSystemRenderer>().material = impactMat; // Applies material to the impact effect.
+            GameObject imp = Instantiate(impactAffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal)); // Instantiates an impact effect at impact.
             Destroy(imp, 3);
 
 
             if (hitInfo.transform.GetComponent<Target>())
             {
-                hitInfo.transform.GetComponent<Target>().TargetTakeDamage(damage);
+                hitInfo.transform.GetComponent<Target>().TargetTakeDamage(damage); // if the hit ibject has a target script, take damage.
             }
         }
     }

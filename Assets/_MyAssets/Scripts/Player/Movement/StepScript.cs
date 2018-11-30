@@ -20,6 +20,7 @@ public class StepScript : MonoBehaviour {
     {
         if (other.tag != "Player" && other.tag != "Ignore" && other.tag != "Zombie")
         {
+            // Adds up force to player to move it up the stairs.
             rb.AddForce(player.transform.up * stepHieght, ForceMode.Impulse);
         }
     }
@@ -27,6 +28,7 @@ public class StepScript : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
+        // Moves player forward when they have stepped up.
         if (other.tag != "Player" && other.tag != "Ignore" && other.tag != "Zombie")
         {
             float axisV = Input.GetAxisRaw("Vertical");
