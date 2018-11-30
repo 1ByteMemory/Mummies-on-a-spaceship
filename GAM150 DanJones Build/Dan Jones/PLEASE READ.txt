@@ -1,4 +1,0 @@
-Player currently doesn't take any damage.
-No jump, yet.
-Yes I know there's the thing with the mouse.
-There's an odd bug where the grenades somtimes goes through the floor. I don't know why.
