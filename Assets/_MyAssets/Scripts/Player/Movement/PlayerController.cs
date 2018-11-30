@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     public Image hitIndicator;
     public Slider playerHealthSlider;
     public GameObject deathScreen;
+    public GameObject HUD;
 
     private bool hit = false;
     private float startTime;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
     public void PlayerDeath ()
     {
+        HUD.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;

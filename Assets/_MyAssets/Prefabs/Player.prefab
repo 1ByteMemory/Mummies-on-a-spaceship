@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 54201740538023846}
   - component: {fileID: 114565367914533746}
   - component: {fileID: 114606582765108400}
+  - component: {fileID: 114883370041582630}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -164,22 +165,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1717810320856500
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4670411337255050}
-  - component: {fileID: 65336505269874780}
-  m_Layer: 10
-  m_Name: WallTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &4074686471469420
 Transform:
   m_ObjectHideFlags: 1
@@ -205,7 +190,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 0.9}
   m_Children:
-  - {fileID: 4670411337255050}
   - {fileID: 4325519685573208}
   m_Father: {fileID: 4841299074039292}
   m_RootOrder: 1
@@ -249,7 +233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4074925945248628}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464223066004582
 Transform:
@@ -264,26 +248,13 @@ Transform:
   m_Father: {fileID: 4074686471469420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &4670411337255050
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1717810320856500}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.433, z: 0}
-  m_LocalScale: {x: 1.1, y: 1, z: 1.1}
-  m_Children: []
-  m_Father: {fileID: 4074925945248628}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4841299074039292
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196387975111072}
-  m_LocalRotation: {x: -0, y: -0.99090165, z: -0, w: 0.13458832}
+  m_LocalRotation: {x: 0, y: -0.9914449, z: 0, w: 0.13052626}
   m_LocalPosition: {x: 8.11, y: 7.5, z: 38.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -291,7 +262,7 @@ Transform:
   - {fileID: 4074925945248628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -164.53001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -165, z: 0}
 --- !u!4 &4898421009262680
 Transform:
   m_ObjectHideFlags: 1
@@ -468,20 +439,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 0.87, z: 1.1}
+  m_Size: {x: 0.9, y: 0.87, z: 0.9}
   m_Center: {x: 0, y: -0.05, z: 0}
---- !u!65 &65336505269874780
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1717810320856500}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.05, y: 1.59, z: 1.05}
-  m_Center: {x: 0, y: -0.13, z: 0}
 --- !u!65 &65697377602709888
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -562,6 +521,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf565e03dd2bc5f4793a8524274eeb08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitIndicator: {fileID: 0}
+  playerHealthSlider: {fileID: 0}
+  deathScreen: {fileID: 0}
 --- !u!114 &114735483187238958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -589,11 +551,51 @@ MonoBehaviour:
   playerCamera: {fileID: 20087228144450206}
   damage: 1
   range: 100
-  zombieHitScript: {fileID: 0}
-  spawnerHitScript: {fileID: 0}
-  zombieImpact: {fileID: 198274869020775270, guid: 83628fa90c006a34fa30ef14c776ff07,
-    type: 2}
   muzzleFlash: {fileID: 1337942645226388}
+--- !u!114 &114883370041582630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1196387975111072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ad35a3b0cca5418aa1475beb52cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetHP: 100
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114606582765108400}
+        m_MethodName: PlayerHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114606582765108400}
+        m_MethodName: PlayerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!136 &136864488074866144
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -603,7 +605,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

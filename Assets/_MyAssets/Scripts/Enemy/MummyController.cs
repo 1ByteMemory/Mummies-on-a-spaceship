@@ -10,6 +10,7 @@ public class MummyController : MonoBehaviour {
     private NavMeshAgent agent;
     private GameObject player;
     private SpawnController spawner;
+    private Animator anim;
 
     private int choice;
 
@@ -26,6 +27,7 @@ public class MummyController : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         spawner = GetComponentInParent<SpawnController>();
+        anim = GetComponent<Animator>();
 
         choice = Random.Range(0, 2);
     }
@@ -48,12 +50,14 @@ public class MummyController : MonoBehaviour {
         {
             case Action_Seek:
                 {
+                    anim.SetBool("isWalk", true);
                     agent.SetDestination(player.transform.position);
                 }
                 break;
 
             case Action_Rage:
                 {
+                    anim.SetBool("isRun", true);
                     agent.speed = rageSpeed;
                     agent.SetDestination(player.transform.position);
                 }
@@ -106,7 +110,12 @@ public class MummyController : MonoBehaviour {
     {
         if (collision.transform.tag == "Player")
         {
+            anim.SetBool("isAttack", true);
             collision.transform.GetComponent<Target>().TargetTakeDamage(enemyDamage);
+        }
+        if (collision.transform.tag == "Spawner")
+        {
+            anim.SetBool("isDancing", true);
         }
     }
 }

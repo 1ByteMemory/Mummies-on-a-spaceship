@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour {
     public Text hudScore;
     public Text deathScore;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     private void Update()
     {
         hudScore.text = "Spawners Destroyed: " + spawnersDestroyed;

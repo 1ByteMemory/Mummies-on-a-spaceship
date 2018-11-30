@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour {
     public float damage = 1;
     public float range = 100f;
     public GameObject muzzleFlash;
+    public GameObject impactAffect;
 
     private Material impactMat;
     private RaycastHit hitInfo;
@@ -34,8 +35,20 @@ public class Gun : MonoBehaviour {
     {
         if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hitInfo))
         {
-            //impactMat = hitInfo.transform.GetComponent<MeshRenderer>().material;
-            
+            if (hitInfo.transform.tag == "Zombie")
+            {
+                impactMat = hitInfo.transform.GetComponentInChildren<Renderer>().materials[0];
+            }
+            else
+            {
+                impactMat = hitInfo.transform.GetComponent<MeshRenderer>().material;
+            }
+
+            impactAffect.transform.GetComponent<ParticleSystemRenderer>().material = impactMat;
+            GameObject imp = Instantiate(impactAffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+            Destroy(imp, 3);
+
+
             if (hitInfo.transform.GetComponent<Target>())
             {
                 hitInfo.transform.GetComponent<Target>().TargetTakeDamage(damage);
