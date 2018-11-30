@@ -91517,12 +91517,12 @@ Prefab:
     - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
         type: 2}
       propertyPath: spawnerMaxHealth
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
         type: 2}
       propertyPath: maxEnemies
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
         type: 2}
@@ -91812,6 +91812,26 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 133062775}
+    - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
+        type: 2}
+      propertyPath: spawnerMaxHealth
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
+        type: 2}
+      propertyPath: maxEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
+        type: 2}
+      propertyPath: maxSpawnRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114652029943121646, guid: feb3c9553db603a45904a815ebab64cc,
+        type: 2}
+      propertyPath: spawnHelpHealth
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb3c9553db603a45904a815ebab64cc, type: 2}
   m_IsPrefabAsset: 0
@@ -92107,7 +92127,7 @@ Prefab:
     - target: {fileID: 224778765794836522, guid: dfa2ec17aac79ee4a9bcb5a57d513f25,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224773199535743966, guid: dfa2ec17aac79ee4a9bcb5a57d513f25,
         type: 2}
